@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import Img from '@/components/img';
+import Botao from '@/components/botao';
 
 export default function Produto() {
   const router = useRouter();
@@ -21,9 +23,9 @@ export default function Produto() {
     <>
       <Header />
       <main>
-        <button onClick={() => router.back()}>← Voltar</button>
+        <Botao onClick={() => router.back()}>← Voltar</Botao>
         <div className="produto-detalhe">
-          <img src={produto.image} alt={produto.title} width={200} />
+          <Img src={produto.image} alt={produto.title} width={200} />
           <div>
             <h2>{produto.title}</h2>
             <p>{produto.description}</p>

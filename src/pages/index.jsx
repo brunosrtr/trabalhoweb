@@ -1,15 +1,19 @@
-import Card from "@/components/card";
-import Footer from "../../../trabalhoweb/src/components/footer";
-import Header from "../../../trabalhoweb/src/components/header";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import Card from '@/components/card';
 
 export default function Home() {
   const [produtos, setProdutos] = useState([]);
+  const [carregando, setCarregando] = useState(true);
 
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(response => response.json())
-      .then(data => setProdutos(data));
+      .then(data => {
+        setProdutos(data);
+        setCarregando(false);
+      });
   }, []);
 
   return (
@@ -17,18 +21,24 @@ export default function Home() {
       <Header />
       <main>
         <h2>Produtos</h2>
-        <p>{produtos.length} itens encontrados</p>
-        <div className="grid">
-          {produtos.map((produto) => (
-            <Card
-              key={produto.id}
-              id={produto.id}
-              title={produto.title}
-              price={produto.price}
-              imagem={produto.image}
-            />
-          ))}
-        </div>
+        {carregando ? (
+          <p>Carregando...</p>
+        ) : (
+          <>
+            <p>{produtos.length} itens encontrados</p>
+            <div className="grid">
+              {produtos.map((produto) => (
+                <Card
+                  key={produto.id}
+                  id={produto.id}
+                  title={produto.title}
+                  price={produto.price}
+                  imagem={produto.image}
+                />
+              ))}
+            </div>
+          </>
+        )}
       </main>
       <Footer />
     </>
