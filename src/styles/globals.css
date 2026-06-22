@@ -27,7 +27,6 @@ nav {
   gap: 1rem;
 }
 
-/* Footer */
 footer {
   display: flex;
   justify-content: center;
@@ -36,7 +35,6 @@ footer {
   margin-top: 2rem;
 }
 
-/* Páginas */
 main {
   padding: 1rem;
 }
@@ -52,9 +50,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #9c9c9c;
   padding: 1rem;
-  width: 200px;
+  width: 250px;
 }
 
 .form {
