@@ -1,6 +1,6 @@
 import Card from "@/components/card";
-import Footer from "@/components/footer";
-import Header from "@/components/header";
+import Footer from "../../../trabalhoweb/src/components/footer";
+import Header from "../../../trabalhoweb/src/components/header";
 import React, { useEffect, useState } from "react";
 
 export default function Home() {
@@ -24,7 +24,6 @@ export default function Home() {
               key={produto.id}
               id={produto.id}
               title={produto.title}
-              description={produto.description}
               price={produto.price}
               imagem={produto.image}
             />
